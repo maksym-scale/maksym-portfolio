@@ -11,47 +11,59 @@ const ukraineCases = allCases.filter(c => c.data.market === 'ukraine');
 const caseHref = (slug: string) => `${base}/cases/${slug}/`;
 ---
 
-<Layout title="Maksym Scale — Growth Partner">
-  <main class="bg-[#0a0a0a] min-h-screen text-white">
+<Layout title="Maksym Scale — Growth Partner для eCommerce">
+  <main class="bg-[#0a0a0a] min-h-screen text-white selection:bg-emerald-500/30">
     
-    <section class="pt-32 pb-20 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.05),transparent_50%)]"></div>
-        <h1 class="relative text-6xl font-bold tracking-tight sm:text-8xl bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
+    <section class="relative pt-32 pb-20 overflow-hidden text-center">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.08),transparent_50%)]"></div>
+      <div class="relative mx-auto max-w-6xl px-6">
+        <div class="mb-8 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-4 py-2 text-sm text-emerald-400 backdrop-blur-md">
+          <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Приймаю нових клієнтів
+        </div>
+        <h1 class="text-6xl font-bold tracking-tight sm:text-8xl bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
           Maksym Scale
         </h1>
-        <p class="relative mt-8 text-xl text-white/50 max-w-2xl mx-auto">
-          Growth Partner для вашого eCommerce бізнесу.
+        <p class="mt-8 text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
+          Різниця між тим, хто «налаштовує рекламу», і тим, хто відповідає за ваш прибуток.
         </p>
+      </div>
     </section>
 
-    <section class="py-20 mx-auto max-w-6xl px-6" x-data="{ market: 'export' }">
+    <section id="cases" class="py-20 mx-auto max-w-6xl px-6" x-data="{ market: 'export' }">
+      
       <div class="flex justify-center mb-16">
-        <div class="inline-flex p-1 bg-white/5 border border-white/10 rounded-2xl">
-          <button @click="market = 'export'" :class="market === 'export' ? 'bg-emerald-500 text-black' : 'text-white/60'" class="px-8 py-3 rounded-xl text-sm font-bold transition-all">
+        <div class="inline-flex p-1 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+          <button @click="market = 'export'" :class="market === 'export' ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' : 'text-white/60 hover:text-white'" class="px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300">
             США та ЄС
           </button>
-          <button @click="market = 'ukraine'" :class="market === 'ukraine' ? 'bg-emerald-500 text-black' : 'text-white/60'" class="px-8 py-3 rounded-xl text-sm font-bold transition-all">
+          <button @click="market = 'ukraine'" :class="market === 'ukraine' ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' : 'text-white/60 hover:text-white'" class="px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300">
             Україна
           </button>
         </div>
       </div>
 
-      <div class="grid gap-8 md:grid-cols-2">
+      <div class="grid gap-10 md:grid-cols-2">
         <template x-if="market === 'export'">
           {exportCases.map(item => (
-            <a href={caseHref(item.slug)} class="group block rounded-[2.5rem] border border-white/5 bg-white/[0.02] p-10 hover:border-emerald-500/30 transition-all">
-              <div class="flex justify-between items-start mb-8">
-                <span class="px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-[10px] uppercase text-emerald-400 font-bold">Кейс: Експорт</span>
-                <div class="text-right">
-                    <div class="text-2xl font-bold text-white">{item.data.result}</div>
-                    <div class="text-[10px] text-white/30 uppercase">Виручка</div>
+            <a href={caseHref(item.slug)} class="group relative block rounded-[2.5rem] border border-white/5 bg-white/[0.02] overflow-hidden hover:border-emerald-500/30 transition-all duration-500">
+              <div class="p-10">
+                <div class="flex justify-between items-start mb-8">
+                  <span class="px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-[10px] uppercase tracking-widest text-emerald-400 font-bold">Кейс: Експорт</span>
+                  <div class="text-right">
+                      <div class="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">{item.data.result}</div>
+                      <div class="text-[10px] text-white/30 uppercase tracking-widest">Виручка</div>
+                  </div>
                 </div>
-              </div>
-              <h3 class="text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">{item.data.title}</h3>
-              <p class="mt-6 text-white/50 line-clamp-2">{item.data.excerpt}</p>
-              <div class="mt-10 pt-10 border-t border-white/5 flex gap-10">
-                 <div><span class="block text-white/30 text-[10px] uppercase mb-1">ROAS</span><span class="text-white font-medium">{item.data.roas}</span></div>
-                 <div class="ml-auto flex items-center gap-2 text-sm text-white/80">Читати кейс <span>→</span></div>
+                <h3 class="text-3xl font-bold text-white leading-tight group-hover:text-emerald-400 transition-colors">{item.data.title}</h3>
+                <p class="mt-6 text-white/50 leading-relaxed line-clamp-2">{item.data.excerpt}</p>
+                <div class="mt-10 pt-10 border-t border-white/5 flex items-center justify-between">
+                  <div class="text-sm">
+                    <span class="block text-white/30 text-[10px] uppercase mb-1 tracking-widest">ROAS</span>
+                    <span class="text-white font-medium">{item.data.roas}</span>
+                  </div>
+                  <span class="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">→</span>
+                </div>
               </div>
             </a>
           ))}
@@ -59,25 +71,59 @@ const caseHref = (slug: string) => `${base}/cases/${slug}/`;
 
         <template x-if="market === 'ukraine'">
           {ukraineCases.map(item => (
-            <a href={caseHref(item.slug)} class="group block rounded-[2.5rem] border border-white/5 bg-white/[0.02] p-10 hover:border-emerald-500/30 transition-all">
-              <div class="flex justify-between items-start mb-8">
-                <span class="px-3 py-1 rounded-full border border-white/5 bg-white/5 text-[10px] uppercase text-white/40 font-bold">Кейс: Україна</span>
-                <div class="text-right">
-                    <div class="text-2xl font-bold text-white">{item.data.result}</div>
-                    <div class="text-[10px] text-white/30 uppercase">Результат</div>
+            <a href={caseHref(item.slug)} class="group relative block rounded-[2.5rem] border border-white/5 bg-white/[0.02] overflow-hidden hover:border-emerald-500/30 transition-all duration-500">
+              <div class="p-10">
+                <div class="flex justify-between items-start mb-8">
+                  <span class="px-3 py-1 rounded-full border border-white/5 bg-white/5 text-[10px] uppercase tracking-widest text-white/40 font-bold">Кейс: Україна</span>
+                  <div class="text-right">
+                      <div class="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">{item.data.result}</div>
+                      <div class="text-[10px] text-white/30 uppercase tracking-widest">Результат</div>
+                  </div>
                 </div>
-              </div>
-              <h3 class="text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">{item.data.title}</h3>
-              <p class="mt-6 text-white/50 line-clamp-2">{item.data.excerpt}</p>
-              <div class="mt-10 pt-10 border-t border-white/5 flex gap-10">
-                 <div><span class="block text-white/30 text-[10px] uppercase mb-1">ROAS</span><span class="text-white font-medium">{item.data.roas}</span></div>
-                 <div class="ml-auto flex items-center gap-2 text-sm text-white/80">Читати кейс <span>→</span></div>
+                <h3 class="text-3xl font-bold text-white leading-tight group-hover:text-emerald-400 transition-colors">{item.data.title}</h3>
+                <p class="mt-6 text-white/50 leading-relaxed line-clamp-2">{item.data.excerpt}</p>
+                <div class="mt-10 pt-10 border-t border-white/5 flex items-center justify-between">
+                  <div class="text-sm">
+                    <span class="block text-white/30 text-[10px] uppercase mb-1 tracking-widest">ROAS</span>
+                    <span class="text-white font-medium">{item.data.roas}</span>
+                  </div>
+                  <span class="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">→</span>
+                </div>
               </div>
             </a>
           ))}
         </template>
       </div>
     </section>
+
+    <section class="py-32 mx-auto max-w-6xl px-6">
+      <h2 class="text-4xl font-bold text-white text-center mb-20">Таргетолог vs Partner</h2>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="rounded-[2.5rem] border border-white/5 bg-white/[0.01] p-10">
+          <h3 class="text-2xl font-bold text-white/40 mb-10 flex items-center gap-4">
+            <span class="h-2 w-2 rounded-full bg-red-500/50"></span> Таргетолог
+          </h3>
+          <ul class="space-y-6 text-white/40 text-sm">
+            <li>✕ Запускає рекламу за вашим ТЗ</li>
+            <li>✕ Мислить метриками кабінету (CTR, CPC)</li>
+            <li>✕ Не занурюється у вашу юніт-економіку</li>
+            <li>✕ Не відповідає за бізнес-результат</li>
+          </ul>
+        </div>
+        <div class="rounded-[2.5rem] border border-emerald-500/20 bg-emerald-500/[0.02] p-10">
+          <h3 class="text-2xl font-bold text-white mb-10 flex items-center gap-4">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> Growth Partner
+          </h3>
+          <ul class="space-y-6 text-white text-sm">
+            <li>✓ Аналізує весь шлях клієнта до покупки</li>
+            <li>✓ Працює з офером, аналітикою та креативами</li>
+            <li>✓ Шукає точки росту в системі продажів</li>
+            <li>✓ Орієнтується на масштабування вашого прибутку</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
   </main>
 </Layout>
 
