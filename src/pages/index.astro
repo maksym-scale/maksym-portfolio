@@ -4,10 +4,11 @@ import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL;
 const allCases = await getCollection('cases');
+
+// Фільтрація
 const exportCases = allCases.filter(c => c.data.market === 'export');
 const ukraineCases = allCases.filter(c => c.data.market === 'ukraine');
 
-// Функція для генерації правильних посилань
 const caseHref = (slug: string) => `${base}/cases/${slug}/`;
 ---
 
@@ -22,196 +23,138 @@ const caseHref = (slug: string) => `${base}/cases/${slug}/`;
           </div>
           <span class="text-white font-semibold text-sm sm:text-base tracking-tight">Maksym<span class="text-white/50">.scale</span></span>
         </a>
-        <a
-          href="https://t.me/Mak_sy_ym"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 bg-white text-black text-xs sm:text-sm font-semibold rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95"
-        >
-          <span class="hidden sm:inline">Зв'язатися</span>
-          <span class="sm:hidden">Chat</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        <a href="https://t.me/Mak_sy_ym" target="_blank" class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95">
+          Зв'язатися <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
   </nav>
 
-  <section class="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 sm:px-6 overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] bg-white/[0.02] rounded-full blur-3xl"></div>
+  <section class="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot; fill=&quot;%23ffffff&quot;/%3E%3C/svg%3E');"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full blur-3xl"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto text-center">
-      <div class="reveal inline-flex items-center gap-2 px-4 py-1.5 mb-6 sm:mb-8 rounded-full border border-white/10 bg-white/[0.03] text-xs sm:text-sm text-white/60">
-        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-        Приймаю нових клієнтів
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-white/10 bg-white/[0.03] text-sm text-white/60">
+        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> Приймаю нових клієнтів
       </div>
-
-      <h1 class="reveal reveal-delay-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
-        <span class="gradient-text">Maksym Scale</span>
-        <br />
-        <span class="text-white/40 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">External Growth Partner</span>
-        <br />
-        <span class="text-white/80 text-xl sm:text-2xl md:text-3xl font-light">для виробництв</span>
+      <h1 class="text-5xl sm:text-7xl font-bold tracking-tight mb-8">
+        <span class="gradient-text">Maksym Scale</span><br />
+        <span class="text-white/40 text-3xl sm:text-5xl font-medium">External Growth Partner</span>
       </h1>
-
-      <p class="reveal reveal-delay-2 text-base sm:text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light">
-        Будую керовані системи продажів, які генерують стабільний кешфлоу.
-        <span class="text-white/70 font-normal">Не просто налаштовую таргет — беру відповідальність за фінальний результат.</span>
+      <p class="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+        Будую керовані системи продажів, які генерують стабільний кешфлоу. <span class="text-white/70 font-normal">Не просто налаштовую таргет — беру відповідальність за результат.</span>
       </p>
-
-      <div class="reveal reveal-delay-3 flex flex-wrap justify-center gap-6 sm:gap-10 mb-10 sm:mb-12">
+      
+      <div class="flex flex-wrap justify-center gap-10 mb-16">
         <div class="text-center">
-          <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white stat-number">$2M<span class="text-white/30">+</span></div>
-          <div class="text-xs sm:text-sm text-white/40 mt-1">Згенеровано для клієнтів</div>
+          <div class="text-3xl sm:text-4xl font-bold text-white">$2M<span class="text-white/30">+</span></div>
+          <div class="text-xs text-white/40 mt-1 uppercase tracking-widest">Згенеровано</div>
         </div>
-        <div class="w-px h-12 bg-white/10 hidden sm:block"></div>
         <div class="text-center">
-          <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white stat-number">12.75<span class="text-white/30">x</span></div>
-          <div class="text-xs sm:text-sm text-white/40 mt-1">Найкращий ROAS</div>
+          <div class="text-3xl sm:text-4xl font-bold text-white">12.75<span class="text-white/30">x</span></div>
+          <div class="text-xs text-white/40 mt-1 uppercase tracking-widest">ROAS</div>
         </div>
-        <div class="w-px h-12 bg-white/10 hidden sm:block"></div>
         <div class="text-center">
-          <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white stat-number">3<span class="text-white/30">+</span></div>
-          <div class="text-xs sm:text-sm text-white/40 mt-1">Роки досвіду</div>
+          <div class="text-3xl sm:text-4xl font-bold text-white">3<span class="text-white/30">+</span></div>
+          <div class="text-xs text-white/40 mt-1 uppercase tracking-widest">Роки досвіду</div>
         </div>
-      </div>
-
-      <div class="reveal reveal-delay-4">
-        <a href="https://t.me/Mak_sy_ym" target="_blank" class="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
-          Отримати безкоштовний розбір бізнесу
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
       </div>
     </div>
   </section>
 
-  <section id="cases" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
+  <section id="cases" class="py-24 px-4 sm:px-6" x-data="{ market: 'export' }">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 sm:mb-16">
-        <h2 class="reveal text-3xl sm:text-5xl font-bold tracking-tight gradient-text">Де ви хочете масштабувати свій продукт?</h2>
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight gradient-text">Де ви хочете масштабувати продукт?</h2>
       </div>
 
-      <div class="reveal reveal-delay-2 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto mb-16" id="market-tabs">
-        <button data-tab="export" class="tab-btn active flex-1 px-8 py-5 rounded-2xl border border-white/10 bg-white/[0.03] text-white/60 font-medium transition-all text-center">
+      <div class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto mb-16">
+        <button @click="market = 'export'" :class="market === 'export' ? 'border-white/30 bg-white/[0.08] text-white' : 'text-white/40'" class="flex-1 px-8 py-5 rounded-2xl border border-white/10 bg-white/[0.03] transition-all text-center group">
           <span class="text-2xl block mb-1">🌍</span> Ринок США та ЄС
         </button>
-        <button data-tab="ukraine" class="tab-btn flex-1 px-8 py-5 rounded-2xl border border-white/10 bg-white/[0.03] text-white/60 font-medium transition-all text-center">
+        <button @click="market = 'ukraine'" :class="market === 'ukraine' ? 'border-white/30 bg-white/[0.08] text-white' : 'text-white/40'" class="flex-1 px-8 py-5 rounded-2xl border border-white/10 bg-white/[0.03] transition-all text-center group">
           <span class="text-2xl block mb-1">🇺🇦</span> Ринок України
         </button>
       </div>
 
-      <div id="content-export" class="tab-content active-tab">
-        <div class="grid gap-6">
-          {exportCases.map((caseItem) => (
-            <a href={caseHref(caseItem.slug)} class="reveal glass rounded-3xl p-8 hover:border-emerald-500/30 transition-all group block">
-              <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                <div>
-                  <div class="flex gap-2 mb-4">
-                    <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20">КЕЙС</span>
-                    <span class="px-3 py-1 rounded-full bg-white/5 text-white/40 text-xs">🌍 Експорт</span>
-                  </div>
-                  <h3 class="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">{caseItem.data.title}</h3>
+      <div x-show="market === 'export'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="space-y-6">
+        {exportCases.map((item) => (
+          <a href={caseHref(item.slug)} class="glass rounded-[2.5rem] p-8 sm:p-10 block hover:border-white/20 transition-all group">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+              <div class="flex-1">
+                <div class="flex gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold border border-emerald-500/20 uppercase tracking-widest">Кейс</span>
+                  <span class="px-3 py-1 rounded-full bg-white/5 text-white/40 text-[10px] uppercase tracking-widest">Експорт</span>
                 </div>
-                <div class="flex gap-4">
-                   <div class="glass px-6 py-4 rounded-2xl text-center min-w-[120px]">
-                      <div class="text-2xl font-bold text-white">{caseItem.data.result}</div>
-                      <div class="text-[10px] text-white/30 uppercase">Результат</div>
-                   </div>
-                   <div class="glass px-6 py-4 rounded-2xl text-center min-w-[120px]">
-                      <div class="text-2xl font-bold text-emerald-400">{caseItem.data.roas}</div>
-                      <div class="text-[10px] text-white/30 uppercase">ROAS</div>
-                   </div>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">{item.data.title}</h3>
+                <p class="mt-4 text-white/40 leading-relaxed max-w-2xl">{item.data.excerpt}</p>
+              </div>
+              <div class="flex gap-4 sm:gap-6">
+                <div class="glass px-6 py-4 rounded-2xl text-center min-w-[130px]">
+                  <div class="text-2xl font-bold text-white">{item.data.result}</div>
+                  <div class="text-[10px] text-white/30 uppercase tracking-widest mt-1">Результат</div>
+                </div>
+                <div class="glass px-6 py-4 rounded-2xl text-center min-w-[130px]">
+                  <div class="text-2xl font-bold text-emerald-400">{item.data.roas}</div>
+                  <div class="text-[10px] text-white/30 uppercase tracking-widest mt-1">ROAS</div>
                 </div>
               </div>
-            </a>
-          ))}
-        </div>
+            </div>
+          </a>
+        ))}
       </div>
 
-      <div id="content-ukraine" class="tab-content hidden-tab">
-        <div class="grid gap-6">
-          {ukraineCases.map((caseItem) => (
-            <a href={caseHref(caseItem.slug)} class="reveal glass rounded-3xl p-8 hover:border-blue-500/30 transition-all group block">
-              <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                <div>
-                  <div class="flex gap-2 mb-4">
-                    <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium border border-blue-500/20">КЕЙС</span>
-                    <span class="px-3 py-1 rounded-full bg-white/5 text-white/40 text-xs">🇺🇦 Україна</span>
-                  </div>
-                  <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">{caseItem.data.title}</h3>
+      <div x-show="market === 'ukraine'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="space-y-6">
+        {ukraineCases.map((item) => (
+          <a href={caseHref(item.slug)} class="glass rounded-[2.5rem] p-8 sm:p-10 block hover:border-white/20 transition-all group">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+              <div class="flex-1">
+                <div class="flex gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-bold border border-blue-500/20 uppercase tracking-widest">Кейс</span>
+                  <span class="px-3 py-1 rounded-full bg-white/5 text-white/40 text-[10px] uppercase tracking-widest">Україна</span>
                 </div>
-                <div class="flex gap-4">
-                   <div class="glass px-6 py-4 rounded-2xl text-center min-w-[120px]">
-                      <div class="text-2xl font-bold text-white">{caseItem.data.result}</div>
-                      <div class="text-[10px] text-white/30 uppercase">Результат</div>
-                   </div>
-                   <div class="glass px-6 py-4 rounded-2xl text-center min-w-[120px]">
-                      <div class="text-2xl font-bold text-blue-400">{caseItem.data.roas}</div>
-                      <div class="text-[10px] text-white/30 uppercase">ROAS</div>
-                   </div>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors leading-tight">{item.data.title}</h3>
+                <p class="mt-4 text-white/40 leading-relaxed max-w-2xl">{item.data.excerpt}</p>
+              </div>
+              <div class="flex gap-4 sm:gap-6">
+                <div class="glass px-6 py-4 rounded-2xl text-center min-w-[130px]">
+                  <div class="text-2xl font-bold text-white">{item.data.result}</div>
+                  <div class="text-[10px] text-white/30 uppercase tracking-widest mt-1">Результат</div>
+                </div>
+                <div class="glass px-6 py-4 rounded-2xl text-center min-w-[130px]">
+                  <div class="text-2xl font-bold text-blue-400">{item.data.roas}</div>
+                  <div class="text-[10px] text-white/30 uppercase tracking-widest mt-1">ROAS</div>
                 </div>
               </div>
-            </a>
-          ))}
-        </div>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="py-32 px-4">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-        <div class="reveal glass rounded-[2.5rem] p-10 border-red-500/10">
-          <h3 class="text-2xl font-bold text-white/40 mb-8">🔴 Таргетолог</h3>
-          <ul class="space-y-4 text-white/40 text-sm">
-            <li>✕ Клікає кнопки в рекламному кабінеті</li>
-            <li>✕ Відповідає тільки за ліди</li>
-            <li>✕ Не рахує юніт-економіку</li>
-          </ul>
-        </div>
-        <div class="reveal reveal-delay-1 glass rounded-[2.5rem] p-10 border-emerald-500/20">
-          <h3 class="text-2xl font-bold text-white mb-8">🟢 Growth Partner</h3>
-          <ul class="space-y-4 text-white text-sm">
-            <li>✓ Рахую Unit-економіку</li>
-            <li>✓ Оптимізую сайт під конверсію</li>
-            <li>✓ Відповідаю за ROAS та прибуток</li>
-          </ul>
-        </div>
+  <section class="py-24 px-4 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="glass rounded-[2.5rem] p-10 border-red-500/10">
+        <h3 class="text-2xl font-bold text-white/40 mb-8">🔴 Таргетолог</h3>
+        <ul class="space-y-4 text-white/40 text-sm">
+          <li>✕ Відповідає тільки за ліди</li>
+          <li>✕ Не рахує юніт-економіку</li>
+          <li>✕ Ігнорує маржинальність бізнесу</li>
+        </ul>
+      </div>
+      <div class="glass rounded-[2.5rem] p-10 border-emerald-500/20">
+        <h3 class="text-2xl font-bold text-white mb-8">🟢 Growth Partner</h3>
+        <ul class="space-y-4 text-white text-sm">
+          <li>✓ Рахую Unit-економіку перед запуском</li>
+          <li>✓ Оптимізую шлях клієнта до покупки</li>
+          <li>✓ Відповідаю за кінцевий прибуток</li>
+        </ul>
+      </div>
     </div>
   </section>
-
-  <section class="py-32 px-4 text-center">
-    <h2 class="reveal text-4xl sm:text-6xl font-bold gradient-text mb-8">Готові заробляти системно?</h2>
-    <a href="https://t.me/Mak_sy_ym" target="_blank" class="reveal reveal-delay-1 inline-block px-10 py-5 bg-white text-black font-bold rounded-full hover:scale-105 transition-all">
-       Написати в Telegram
-    </a>
-  </section>
-
-  <script is:inline>
-    const tabs = document.querySelectorAll('.tab-btn');
-    const exportContent = document.getElementById('content-export');
-    const ukraineContent = document.getElementById('content-ukraine');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.tab;
-        
-        tabs.forEach(t => t.classList.remove('active', '!border-white/30', '!bg-white/10', '!text-white'));
-        tab.classList.add('active', '!border-white/30', '!bg-white/10', '!text-white');
-
-        if(target === 'export') {
-          exportContent.classList.remove('hidden-tab');
-          ukraineContent.classList.add('hidden-tab');
-        } else {
-          ukraineContent.classList.remove('hidden-tab');
-          exportContent.classList.add('hidden-tab');
-        }
-      });
-    });
-  </script>
-
-  <style>
-    .hidden-tab { display: none; }
-    .active-tab { display: block; }
-  </style>
 
 </Layout>
+
+<script is:inline src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
