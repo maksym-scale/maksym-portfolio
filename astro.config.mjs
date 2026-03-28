@@ -1,9 +1,10 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro:config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://YOUR_USERNAME.github.io',
-  base: '/YOUR_REPO_NAME',
+  // Твоя адреса на GitHub Pages
+  site: 'https://maksym-scale.github.io',
+  // Назва твого репозиторію
+  base: '/maksym-portfolio',
   integrations: [tailwind()],
-  output: 'static',
 });
