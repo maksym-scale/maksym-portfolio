@@ -2,532 +2,83 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL;
 const allCases = await getCollection('cases');
+
 const exportCases = allCases.filter(c => c.data.market === 'export');
 const ukraineCases = allCases.filter(c => c.data.market === 'ukraine');
+
+const caseHref = (slug: string) => `${base}/cases/${slug}/`;
 ---
 
-<Layout title="Maksym Scale | External Growth Partner для виробництв">
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- NAVIGATION -->
-  <!-- ═══════════════════════════════════════ -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-20">
-        <a href="#" class="flex items-center gap-2 group">
-          <div class="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
-            <span class="text-black font-bold text-sm sm:text-lg">MS</span>
-          </div>
-          <span class="text-white font-semibold text-sm sm:text-base tracking-tight">Maksym<span class="text-white/50">.scale</span></span>
-        </a>
-        <a
-          href="https://t.me/Mak_sy_ym"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 bg-white text-black text-xs sm:text-sm font-semibold rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95"
-        >
-          <span class="hidden sm:inline">Зв'язатися</span>
-          <span class="sm:hidden">Chat</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- HERO SECTION -->
-  <!-- ═══════════════════════════════════════ -->
-  <section class="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 sm:px-6 overflow-hidden">
-    <!-- Subtle grid bg -->
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-
-    <!-- Radial glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] bg-white/[0.02] rounded-full blur-3xl"></div>
-
-    <div class="relative z-10 max-w-4xl mx-auto text-center">
-      <!-- Badge -->
-      <div class="reveal inline-flex items-center gap-2 px-4 py-1.5 mb-6 sm:mb-8 rounded-full border border-white/10 bg-white/[0.03] text-xs sm:text-sm text-white/60">
-        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-        Приймаю нових клієнтів
-      </div>
-
-      <!-- Main headline -->
-      <h1 class="reveal reveal-delay-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
-        <span class="gradient-text">Maksym Scale</span>
-        <br />
-        <span class="text-white/40 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">External Growth Partner</span>
-        <br />
-        <span class="text-white/80 text-xl sm:text-2xl md:text-3xl font-light">для виробництв</span>
-      </h1>
-
-      <!-- Subheadline -->
-      <p class="reveal reveal-delay-2 text-base sm:text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light">
-        Будую керовані системи продажів, які генерують стабільний кешфлоу.
-        <span class="text-white/70 font-normal">Не просто налаштовую таргет — беру відповідальність за фінальний результат.</span>
-      </p>
-
-      <!-- Stats bar -->
-      <div class="reveal reveal-delay-3 flex flex-wrap justify-center gap-6 sm:gap-10 mb-10 sm:mb-12">
-        <div class="text-center">
-          <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white stat-number">$2M<span class="text-white/30">+</span></div>
-          <div class="text-xs sm:text-sm text-white/40 mt-1">Згенеровано для клієнтів</div>
-        </div>
-        <div class="w-px h-12 bg-white/10 hidden sm:block"></div>
-        <div class="text-center">
-          <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white stat-number">12.75<span class="text-white/30">x</span></div>
-          <div class="text-xs sm:text-sm text-white/40 mt-1">Найкращий ROAS</div>
-        </div>
-        <div class="w-px h-12 bg-white/10 hidden sm:block"></div>
-        <div class="text-center">
-          <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white stat-number">3<span class="text-white/30">+</span></div>
-          <div class="text-xs sm:text-sm text-white/40 mt-1">Роки досвіду</div>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="reveal reveal-delay-4">
-        <a
-          href="https://t.me/Mak_sy_ym"
-          target="_blank"
-          rel="noopener"
-          class="group inline-flex items-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-white text-black font-semibold text-sm sm:text-base rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.1)]"
-        >
-          Отримати безкоштовний розбір бізнесу
-          <svg class="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-        <p class="text-xs text-white/30 mt-4">Безкоштовна 20-хвилинна консультація в Telegram</p>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/20">
-      <span class="text-xs tracking-widest uppercase">Скрол</span>
-      <div class="w-5 h-8 border border-white/20 rounded-full flex justify-center">
-        <div class="w-1 h-2 bg-white/40 rounded-full mt-1.5 animate-bounce"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Divider -->
-  <div class="glow-line"></div>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- MARKET TABS SECTION -->
-  <!-- ═══════════════════════════════════════ -->
-  <section id="cases" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
-    <div class="max-w-6xl mx-auto">
-      <!-- Section header -->
-      <div class="text-center mb-12 sm:mb-16">
-        <span class="reveal inline-block text-xs sm:text-sm tracking-[0.2em] uppercase text-white/30 mb-4">Вибір вектору</span>
-        <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight gradient-text">
-          Де ви хочете масштабувати<br class="hidden sm:block" /> свій продукт?
-        </h2>
-      </div>
-
-      <!-- Tabs -->
-      <div class="reveal reveal-delay-2 flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-2xl mx-auto mb-12 sm:mb-16" id="market-tabs">
-        <button
-          data-tab="export"
-          class="tab-btn active flex-1 group relative px-6 py-4 sm:px-8 sm:py-5 rounded-2xl border border-white/10 bg-white/[0.03] text-white/60 text-sm sm:text-base font-medium transition-all hover:border-white/20 hover:bg-white/[0.06] text-center"
-        >
-          <span class="text-xl sm:text-2xl block mb-1">🌍</span>
-          Ринок США та ЄС
-          <span class="block text-xs text-white/30 mt-1">Експорт</span>
-        </button>
-        <button
-          data-tab="ukraine"
-          class="tab-btn flex-1 group relative px-6 py-4 sm:px-8 sm:py-5 rounded-2xl border border-white/10 bg-white/[0.03] text-white/60 text-sm sm:text-base font-medium transition-all hover:border-white/20 hover:bg-white/[0.06] text-center"
-        >
-          <span class="text-xl sm:text-2xl block mb-1">🇺🇦</span>
-          Ринок України
-          <span class="block text-xs text-white/30 mt-1">Локальне масштабування</span>
-        </button>
-      </div>
-
-      <!-- Tab Content: EXPORT -->
-      <div id="content-export" class="tab-content active-tab">
-        <!-- Approach description -->
-        <div class="reveal glass rounded-3xl p-6 sm:p-8 lg:p-10 mb-8">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/[0.05] flex items-center justify-center flex-shrink-0">
-              <span class="text-2xl">🚀</span>
-            </div>
-            <div>
-              <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Підхід до експорту</h3>
-              <p class="text-sm sm:text-base text-white/50 leading-relaxed">
-                Вихід на Захід — це не просто перекласти сайт. Це <span class="text-white/80 font-medium">юніт-економіка, логістика, Trust Stack та Shopify.</span> Я будую цю систему під ключ — від першого дослідження ринку до стабільних щомісячних продажів.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Export Cases -->
-        <div class="grid gap-6 md:grid-cols-1">
-          {exportCases.map((caseItem) => (
-            <div class="reveal glass rounded-3xl p-6 sm:p-8 hover:border-white/10 transition-all group">
-              <div class="flex flex-col lg:flex-row lg:items-center gap-6">
-                <div class="flex-1">
-                  <div class="flex flex-wrap items-center gap-2 mb-4">
-                    <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20">КЕЙС</span>
-                    <span class="px-3 py-1 rounded-full bg-white/[0.05] text-white/40 text-xs font-medium">🌍 Експорт</span>
-                  </div>
-                  <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:gradient-text transition-all">
-                    {caseItem.data.title}
-                  </h3>
-                  <p class="text-sm sm:text-base text-white/40 leading-relaxed mb-4">
-                    Побудовано з нуля — від 0 до системного бізнесу на ринку США.
-                  </p>
-                </div>
-                <div class="flex flex-wrap gap-3 lg:gap-4 lg:flex-col lg:items-end">
-                  <div class="glass rounded-2xl px-5 py-3 text-center min-w-[120px]">
-                    <div class="text-xl sm:text-2xl font-bold text-white">{caseItem.data.revenue}</div>
-                    <div class="text-xs text-white/30 mt-1">Виручка</div>
-                  </div>
-                  <div class="glass rounded-2xl px-5 py-3 text-center min-w-[120px]">
-                    <div class="text-xl sm:text-2xl font-bold text-emerald-400">{caseItem.data.roas}</div>
-                    <div class="text-xs text-white/30 mt-1">ROAS</div>
-                  </div>
-                  {caseItem.data.spend && (
-                    <div class="glass rounded-2xl px-5 py-3 text-center min-w-[120px]">
-                      <div class="text-xl sm:text-2xl font-bold text-white/70">{caseItem.data.spend}</div>
-                      <div class="text-xs text-white/30 mt-1">Витрати</div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <!-- Export Service -->
-        <div class="reveal mt-8 glass rounded-3xl p-6 sm:p-8 border border-white/10">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-              <h4 class="text-lg font-semibold text-white mb-1">Fractional Export Growth Partner</h4>
-              <p class="text-sm text-white/40">Повний супровід виходу на ринок США/ЄС під ключ</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-2xl sm:text-3xl font-bold text-white">$900<span class="text-white/30 text-lg">/міс</span></div>
-              </div>
-              <a href="https://t.me/Mak_sy_ym" target="_blank" rel="noopener" class="px-6 py-3 bg-white text-black font-semibold text-sm rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95 whitespace-nowrap">
-                Деталі →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab Content: UKRAINE -->
-      <div id="content-ukraine" class="tab-content hidden-tab">
-        <!-- Approach description -->
-        <div class="reveal glass rounded-3xl p-6 sm:p-8 lg:p-10 mb-8">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/[0.05] flex items-center justify-center flex-shrink-0">
-              <span class="text-2xl">⚡</span>
-            </div>
-            <div>
-              <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Підхід до локального масштабування</h3>
-              <p class="text-sm sm:text-base text-white/50 leading-relaxed">
-                Масштабування без втрати окупності. <span class="text-white/80 font-medium">Жорсткий контроль ціни ліда (CPL) та побудова екосистеми: Сайт + Instagram + Meta Ads.</span> Кожна гривня працює на результат.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ukraine Cases -->
-        <div class="grid gap-6 md:grid-cols-1">
-          {ukraineCases.map((caseItem) => (
-            <div class="reveal glass rounded-3xl p-6 sm:p-8 hover:border-white/10 transition-all group">
-              <div class="flex flex-col lg:flex-row lg:items-center gap-6">
-                <div class="flex-1">
-                  <div class="flex flex-wrap items-center gap-2 mb-4">
-                    <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium border border-blue-500/20">КЕЙС</span>
-                    <span class="px-3 py-1 rounded-full bg-white/[0.05] text-white/40 text-xs font-medium">🇺🇦 Україна</span>
-                    {caseItem.data.duration && (
-                      <span class="px-3 py-1 rounded-full bg-white/[0.05] text-white/40 text-xs font-medium">⏱ {caseItem.data.duration}</span>
-                    )}
-                  </div>
-                  <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:gradient-text transition-all">
-                    {caseItem.data.title}
-                  </h3>
-                </div>
-                <div class="flex flex-wrap gap-3 lg:gap-4 lg:flex-col lg:items-end">
-                  <div class="glass rounded-2xl px-5 py-3 text-center min-w-[120px]">
-                    <div class="text-xl sm:text-2xl font-bold text-white">{caseItem.data.revenue}</div>
-                    <div class="text-xs text-white/30 mt-1">Виручка</div>
-                  </div>
-                  <div class="glass rounded-2xl px-5 py-3 text-center min-w-[120px]">
-                    <div class="text-xl sm:text-2xl font-bold text-blue-400">{caseItem.data.roas}</div>
-                    <div class="text-xs text-white/30 mt-1">ROAS</div>
-                  </div>
-                  {caseItem.data.spend && (
-                    <div class="glass rounded-2xl px-5 py-3 text-center min-w-[120px]">
-                      <div class="text-xl sm:text-2xl font-bold text-white/70">{caseItem.data.spend}</div>
-                      <div class="text-xs text-white/30 mt-1">Витрати</div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <!-- Ukraine Service -->
-        <div class="reveal mt-8 glass rounded-3xl p-6 sm:p-8 border border-white/10">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-              <h4 class="text-lg font-semibold text-white mb-1">Комплексний маркетинг «Під ключ»</h4>
-              <p class="text-sm text-white/40">Сайт, упаковка, трафік та повний супровід</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-2xl sm:text-3xl font-bold text-white">$400<span class="text-white/30 text-lg">/міс</span></div>
-              </div>
-              <a href="https://t.me/Mak_sy_ym" target="_blank" rel="noopener" class="px-6 py-3 bg-white text-black font-semibold text-sm rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95 whitespace-nowrap">
-                Деталі →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Divider -->
-  <div class="glow-line"></div>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- COMPARISON SECTION -->
-  <!-- ═══════════════════════════════════════ -->
-  <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 sm:mb-16">
-        <span class="reveal inline-block text-xs sm:text-sm tracking-[0.2em] uppercase text-white/30 mb-4">Мій підхід</span>
-        <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight gradient-text">
-          Growth Partner vs Таргетолог
-        </h2>
-        <p class="reveal reveal-delay-2 text-sm sm:text-base text-white/40 mt-4 max-w-xl mx-auto">
-          Різниця між тим, хто «налаштовує рекламу» і тим, хто відповідає за ваш прибуток.
+<Layout title="Maksym Scale — Growth Partner">
+  <main class="bg-[#0a0a0a] min-h-screen text-white">
+    
+    <section class="pt-32 pb-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.05),transparent_50%)]"></div>
+        <h1 class="relative text-6xl font-bold tracking-tight sm:text-8xl bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
+          Maksym Scale
+        </h1>
+        <p class="relative mt-8 text-xl text-white/50 max-w-2xl mx-auto">
+          Growth Partner для вашого eCommerce бізнесу.
         </p>
-      </div>
+    </section>
 
-      <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-        <!-- Targetologist Card -->
-        <div class="reveal glass rounded-3xl p-6 sm:p-8 relative overflow-hidden border-red-500/10">
-          <!-- Red accent -->
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500/50 to-transparent"></div>
-
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-red-500/10 flex items-center justify-center">
-              <span class="text-xl">👤</span>
-            </div>
-            <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white">Таргетолог</h3>
-              <p class="text-xs text-white/30">Стандартний підхід</p>
-            </div>
-          </div>
-
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="text-red-400 mt-0.5 flex-shrink-0">✕</span>
-              <span class="text-sm sm:text-base text-white/50">Клікає кнопки в рекламному кабінеті</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-400 mt-0.5 flex-shrink-0">✕</span>
-              <span class="text-sm sm:text-base text-white/50">Відповідає тільки за ліди, а не за продажі</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-400 mt-0.5 flex-shrink-0">✕</span>
-              <span class="text-sm sm:text-base text-white/50">Ігнорує логістику та маржинальність</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-400 mt-0.5 flex-shrink-0">✕</span>
-              <span class="text-sm sm:text-base text-white/50">Не рахує юніт-економіку</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-red-400 mt-0.5 flex-shrink-0">✕</span>
-              <span class="text-sm sm:text-base text-white/50">Зникає, коли ROAS падає</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Growth Partner Card -->
-        <div class="reveal reveal-delay-1 glass rounded-3xl p-6 sm:p-8 relative overflow-hidden border-emerald-500/10">
-          <!-- Green accent -->
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500/50 to-transparent"></div>
-
-          <!-- Recommended badge -->
-          <div class="absolute top-4 right-4">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20">
-              Рекомендовано
-            </span>
-          </div>
-
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
-              <span class="text-xl">🧠</span>
-            </div>
-            <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white">Growth Partner <span class="text-white/30">(Я)</span></h3>
-              <p class="text-xs text-white/30">Системний підхід</p>
-            </div>
-          </div>
-
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span>
-              <span class="text-sm sm:text-base text-white/70">Рахую Unit-економіку перед запуском</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span>
-              <span class="text-sm sm:text-base text-white/70">Оптимізую сайт / Shopify під конверсію</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span>
-              <span class="text-sm sm:text-base text-white/70">Створюю повну стратегію залучення клієнтів</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span>
-              <span class="text-sm sm:text-base text-white/70">Відповідаю за ROAS та кінцевий прибуток</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span>
-              <span class="text-sm sm:text-base text-white/70">Будую Trust Stack та системи retention</span>
-            </li>
-          </ul>
+    <section class="py-20 mx-auto max-w-6xl px-6" x-data="{ market: 'export' }">
+      <div class="flex justify-center mb-16">
+        <div class="inline-flex p-1 bg-white/5 border border-white/10 rounded-2xl">
+          <button @click="market = 'export'" :class="market === 'export' ? 'bg-emerald-500 text-black' : 'text-white/60'" class="px-8 py-3 rounded-xl text-sm font-bold transition-all">
+            США та ЄС
+          </button>
+          <button @click="market = 'ukraine'" :class="market === 'ukraine' ? 'bg-emerald-500 text-black' : 'text-white/60'" class="px-8 py-3 rounded-xl text-sm font-bold transition-all">
+            Україна
+          </button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Divider -->
-  <div class="glow-line"></div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <template x-if="market === 'export'">
+          {exportCases.map(item => (
+            <a href={caseHref(item.slug)} class="group block rounded-[2.5rem] border border-white/5 bg-white/[0.02] p-10 hover:border-emerald-500/30 transition-all">
+              <div class="flex justify-between items-start mb-8">
+                <span class="px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-[10px] uppercase text-emerald-400 font-bold">Кейс: Експорт</span>
+                <div class="text-right">
+                    <div class="text-2xl font-bold text-white">{item.data.result}</div>
+                    <div class="text-[10px] text-white/30 uppercase">Виручка</div>
+                </div>
+              </div>
+              <h3 class="text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">{item.data.title}</h3>
+              <p class="mt-6 text-white/50 line-clamp-2">{item.data.excerpt}</p>
+              <div class="mt-10 pt-10 border-t border-white/5 flex gap-10">
+                 <div><span class="block text-white/30 text-[10px] uppercase mb-1">ROAS</span><span class="text-white font-medium">{item.data.roas}</span></div>
+                 <div class="ml-auto flex items-center gap-2 text-sm text-white/80">Читати кейс <span>→</span></div>
+              </div>
+            </a>
+          ))}
+        </template>
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- FOOTER & CTA -->
-  <!-- ═══════════════════════════════════════ -->
-  <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="reveal">
-        <span class="inline-block text-xs sm:text-sm tracking-[0.2em] uppercase text-white/30 mb-4">Наступний крок</span>
+        <template x-if="market === 'ukraine'">
+          {ukraineCases.map(item => (
+            <a href={caseHref(item.slug)} class="group block rounded-[2.5rem] border border-white/5 bg-white/[0.02] p-10 hover:border-emerald-500/30 transition-all">
+              <div class="flex justify-between items-start mb-8">
+                <span class="px-3 py-1 rounded-full border border-white/5 bg-white/5 text-[10px] uppercase text-white/40 font-bold">Кейс: Україна</span>
+                <div class="text-right">
+                    <div class="text-2xl font-bold text-white">{item.data.result}</div>
+                    <div class="text-[10px] text-white/30 uppercase">Результат</div>
+                </div>
+              </div>
+              <h3 class="text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">{item.data.title}</h3>
+              <p class="mt-6 text-white/50 line-clamp-2">{item.data.excerpt}</p>
+              <div class="mt-10 pt-10 border-t border-white/5 flex gap-10">
+                 <div><span class="block text-white/30 text-[10px] uppercase mb-1">ROAS</span><span class="text-white font-medium">{item.data.roas}</span></div>
+                 <div class="ml-auto flex items-center gap-2 text-sm text-white/80">Читати кейс <span>→</span></div>
+              </div>
+            </a>
+          ))}
+        </template>
       </div>
-
-      <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight gradient-text mb-6">
-        Готові перестати зливати<br class="hidden sm:block" /> бюджет і почати заробляти системно?
-      </h2>
-
-      <p class="reveal reveal-delay-2 text-base sm:text-lg text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Напишіть мені в Telegram слово <span class="font-mono text-white/80 bg-white/[0.05] px-2 py-0.5 rounded">«СИСТЕМА»</span>.
-        Ми зідзвонимося на 20 хвилин, я проведу стрес-тест вашої поточної моделі і покажу точки росту.
-      </p>
-
-      <div class="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="https://t.me/Mak_sy_ym"
-          target="_blank"
-          rel="noopener"
-          class="group inline-flex items-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-white text-black font-semibold text-sm sm:text-base rounded-full hover:bg-white/90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_60px_rgba(255,255,255,0.12)]"
-        >
-          <!-- Telegram icon -->
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-          </svg>
-          Написати в Telegram
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- ACTUAL FOOTER -->
-  <!-- ═══════════════════════════════════════ -->
-  <footer class="border-t border-white/5 py-8 sm:py-12 px-4 sm:px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-        <!-- Logo -->
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-            <span class="text-black font-bold text-sm">MS</span>
-          </div>
-          <span class="text-white/40 text-sm">Maksym Scale © 2024</span>
-        </div>
-
-        <!-- Social Links -->
-        <div class="flex items-center gap-4">
-          <a href="https://t.me/Mak_sy_ym" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/maksym.scale/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Quick links -->
-        <div class="flex items-center gap-6 text-xs text-white/30">
-          <a href="#cases" class="hover:text-white/60 transition-colors">Кейси</a>
-          <a href="https://t.me/Mak_sy_ym" target="_blank" class="hover:text-white/60 transition-colors">Контакт</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- TAB SWITCHING SCRIPT -->
-  <!-- ═══════════════════════════════════════ -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('.tab-btn');
-      const exportContent = document.getElementById('content-export');
-      const ukraineContent = document.getElementById('content-ukraine');
-
-      function switchTab(target: string) {
-        tabs.forEach(tab => {
-          if (tab.getAttribute('data-tab') === target) {
-            tab.classList.add('active');
-            tab.classList.add('!border-white/30', '!bg-white/[0.08]', '!text-white');
-          } else {
-            tab.classList.remove('active');
-            tab.classList.remove('!border-white/30', '!bg-white/[0.08]', '!text-white');
-          }
-        });
-
-        if (target === 'export') {
-          exportContent?.classList.remove('hidden-tab');
-          exportContent?.classList.add('active-tab');
-          ukraineContent?.classList.add('hidden-tab');
-          ukraineContent?.classList.remove('active-tab');
-        } else {
-          ukraineContent?.classList.remove('hidden-tab');
-          ukraineContent?.classList.add('active-tab');
-          exportContent?.classList.add('hidden-tab');
-          exportContent?.classList.remove('active-tab');
-        }
-
-        // Re-trigger reveal animations for the new content
-        const newContent = target === 'export' ? exportContent : ukraineContent;
-        newContent?.querySelectorAll('.reveal').forEach(el => {
-          el.classList.remove('visible');
-          setTimeout(() => el.classList.add('visible'), 50);
-        });
-      }
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const target = tab.getAttribute('data-tab');
-          if (target) switchTab(target);
-        });
-      });
-
-      // Initialize first tab as active
-      switchTab('export');
-    });
-  </script>
-
+    </section>
+  </main>
 </Layout>
+
+<script is:inline src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
