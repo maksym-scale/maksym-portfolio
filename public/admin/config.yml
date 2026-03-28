@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: YOUR_USERNAME/YOUR_REPO_NAME  # ← Замініть на ваш GitHub repo
+  branch: main
+  base_url: https://api.netlify.com  # Або використовуйте oauth proxy
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "cases"
+    label: "Кейси"
+    folder: "src/content/cases"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - label: "Ринок"
+        name: "market"
+        widget: "select"
+        options:
+          - { label: "🌍 Ринок США та ЄС", value: "export" }
+          - { label: "🇺🇦 Ринок України", value: "ukraine" }
+      - { label: "Виручка", name: "revenue", widget: "string", hint: "Наприклад: $835,282" }
+      - { label: "ROAS", name: "roas", widget: "string", hint: "Наприклад: 12.75x" }
+      - { label: "Витрати", name: "spend", widget: "string", hint: "Наприклад: $65,000", required: false }
+      - { label: "Тривалість", name: "duration", widget: "string", hint: "Наприклад: 6 місяців", required: false }
+      - { label: "Обкладинка", name: "thumbnail", widget: "image", required: false }
+      - { label: "Опис кейсу", name: "body", widget: "markdown" }
